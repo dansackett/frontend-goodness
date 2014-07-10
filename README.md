@@ -35,16 +35,9 @@ Next install bower:
 
     sudo npm install -g bower
 
-Next install gulp:
+Next install the gulp packages we'll use for this repo:
 
-    sudo npm install gulp
-
-Next install the packages we'll use for this repo:
-
-    sudo npm install --save-dev gulp-minify-css
-    sudo npm install --save-dev gulp-coffee
-    sudo npm install --save-dev gulp-sass
-    sudo npm install --save-dev gulp-watch
+    sudo npm install
 
 Next install bower components:
 

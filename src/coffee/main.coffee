@@ -1,12 +1,9 @@
-app = angular.module 'barebones', []
+'use strict'
 
-app.controller 'mainController',
-    class MainCtrl
-        @$inject: ['$scope', '$http']
+angular = require 'angular'
 
-        constructor: (@scope, @http) ->
-            @scope.appName = 'Frontend Goodness'
-            @scope.changeAppName = @changeAppName
+MainController = require './controllers/MainController'
 
-        changeAppName: =>
-            @scope.appName = 'Changed you!'
+app = angular.module 'mainapp', []
+
+app.controller 'mainController', MainController

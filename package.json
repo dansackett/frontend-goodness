@@ -1,0 +1,38 @@
+{
+  "name": "frontend-goodness",
+  "version": "0.0.0",
+  "description": "Great frontend kit",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browserify": "^4.2.0",
+    "gulp": "^3.8.6",
+    "gulp-autoprefixer": "^0.0.8",
+    "gulp-browserify": "^0.5.0",
+    "gulp-concat": "^2.3.3",
+    "gulp-minify-css": "^0.3.6",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-sass": "^0.7.2",
+    "gulp-watch": "^0.6.8"
+  },
+  "devDependencies": {
+    "angular": "^1.2.19",
+    "coffeeify": "^0.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dansackett/frontend-goodness"
+  },
+  "keywords": [
+    "gulp",
+    "bower",
+    "angularjs",
+    "sass",
+    "bootstrap"
+  ],
+  "author": "Dan Sackett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dansackett/frontend-goodness/issues"
+  },
+  "homepage": "https://github.com/dansackett/frontend-goodness"
+}
