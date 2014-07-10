@@ -1,0 +1,29 @@
+{
+  "name": "frontend-goodness",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dansackett/frontend-goodness",
+  "authors": [
+    "Dan Sackett <danesackett@gmail.com>"
+  ],
+  "description": "Frontend Quick Start Template",
+  "keywords": [
+    "coffeescript",
+    "jquery",
+    "angularjs",
+    "sass"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.19",
+    "bootstrap": "~3.2.0",
+    "jquery": "~2.1.1"
+  }
+}

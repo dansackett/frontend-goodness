@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="barebones">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dan Sackett">
+        <link rel="shortcut icon" href="public/favicon.ico">
+
+        <title>Frontend Goodness</title>
+
+        <!-- CSS -->
+        <link href="public/third-party/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="public/css/styles.css" rel="stylesheet" />
+    </head>
+
+    <body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Frontend Goodness</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" ng-controller="mainController">
+        <div class="row">
+            <h3 ng-click="changeAppName()">{{ appName }}</h3>
+            <p>This setup is my attempt at creating a more uniform template to
+            start from for new projects for me. It allows getting setup fast
+            for a new web project and gives me some tools that make
+            development a breeze. It includes:</p>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4>jQuery</h4>
+                    <p>jQuery is included for DOM manipulation and because
+                    it makes most tasks in JavaScript incredibly easier.</p>
+                </li>
+                <li class="list-group-item">
+                    <h4>AngularJS</h4>
+                    <p>AngularJS is included to create a rich data-driven website
+                    based on dynamic content and user events.</p>
+                </li>
+                <li class="list-group-item">
+                    <h4>CoffeeScript</h4>
+                    <p>CoffeeScript is included to make writing jQuery and
+                    AngularJS more enjoyable and also to make writing them
+                    easier and faster.</p>
+                </li>
+                <li class="list-group-item">
+                    <h4>SASS</h4>
+                    <p>SASS is included to make writing CSS less painful and
+                    much faster.</p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Twitter Bootstrap</h4>
+                    <p>Twitter bootstrap is included for fast scaffolds and
+                    moving quickly with best practice HTML.</p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Gulp</h4>
+                    <p>Build tool to make front-end development much easier.</p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Bower</h4>
+                    <p>Front-end package management.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="public/third-party/jquery/dist/jquery.min.js"></script>
+    <script src="public/third-party/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="public/third-party/angular/angular.min.js"></script>
+    <script src="public/js/main.js"></script>
+
+    </body>
+</html>
