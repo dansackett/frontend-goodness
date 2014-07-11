@@ -16,8 +16,8 @@ dest = {
 
 // Assign Sources
 src = {
-    sass: 'src/sass/*.scss',
-    all_coffee: 'src/coffee/*.coffee',
+    sass: 'src/css/*.scss',
+    all_coffee_components: 'src/coffee/**/*.coffee',
     main_coffee: 'src/coffee/main.coffee',
     js: 'public/js/*.js'
 };
@@ -34,7 +34,7 @@ gulp.task('compile-sass', function () {
     .pipe(autoprefixer("> 1%"))
     .pipe(gulp.dest(dest.css))
     .pipe(minifycss())
-    .pipe(gulp.dest(cssDir));
+    .pipe(gulp.dest(dest.css));
 });
 
 // Browserify
@@ -55,7 +55,12 @@ gulp.task('clean-js', function() {
 
 // Create watcher for all tasks
 gulp.task('watch', function () {
-    watch({glob: src.all_coffee}, function (files) {
+    watch({glob: src.main_coffee}, function (files) {
+        gulp.start('clean-js');
+        gulp.start('browserify');
+    });
+
+    watch({glob: src.all_coffee_components}, function (files) {
         gulp.start('clean-js');
         gulp.start('browserify');
     });
