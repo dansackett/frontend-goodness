@@ -16,6 +16,7 @@ Features
 * [Twitter Bootstrap](http://getbootstrap.com) - For quick scaffolding.
 * [SASS](http://sass-lang.com/) - Making writing CSS less painful.
 * [Gulp](http://gulpjs.com/) - Tool to build all files and compile for production.
+* [FontAwesome](http://fontawesome.io/) - Excellent web fonts.
 
 Getting Setup
 =============
