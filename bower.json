@@ -10,6 +10,7 @@
     "coffeescript",
     "jquery",
     "angularjs",
+    "fontawesome",
     "sass"
   ],
   "license": "MIT",
@@ -25,5 +26,8 @@
     "angular": "~1.2.19",
     "bootstrap": "~3.2.0",
     "jquery": "~2.1.1"
+  },
+  "devDependencies": {
+    "fontawesome": "~4.1.0"
   }
 }
