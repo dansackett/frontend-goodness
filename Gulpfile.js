@@ -1,11 +1,12 @@
 // Define Gulp Objects
-var gulp            = require('gulp');
-var sass            = require('gulp-sass');
-var watch           = require('gulp-watch');
-var rimraf          = require('gulp-rimraf');
-var concat          = require('gulp-concat');
-var browserify      = require('gulp-browserify');
-var autoprefixer    = require('gulp-autoprefixer');
+var gulp            = require('gulp'),
+    sass            = require('gulp-sass'),
+    watch           = require('gulp-watch'),
+    rimraf          = require('gulp-rimraf'),
+    concat          = require('gulp-concat'),
+    browserify      = require('gulp-browserify'),
+    autoprefixer    = require('gulp-autoprefixer'),
+    minifycss       = require('gulp-minify-css');
 
 // Assign Destinations
 dest = {
@@ -28,10 +29,12 @@ gulp.task('compile-sass', function () {
         onError: function(e) {
             console.log(e);
         },
-        style: 'compressed'
+        style: 'expanded'
     }))
     .pipe(autoprefixer("> 1%"))
-    .pipe(gulp.dest(dest.css));
+    .pipe(gulp.dest(dest.css))
+    .pipe(minifycss())
+    .pipe(gulp.dest(cssDir));
 });
 
 // Browserify
