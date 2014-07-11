@@ -31,7 +31,7 @@ Next make sure you install nodeJS:
     sudo apt-get update
     sudo apt-get install nodejs
 
-Next install bower:
+Next install bower (It's recommended to install it globally):
 
     sudo npm install -g bower
 
@@ -51,7 +51,7 @@ Using this project
 To actively develop on this project, all you have to do is go to the terminal
 and type the following:
 
-    gulp watch-files
+    gulp watch
 
 Now as you edit coffeescript files and SASS files you will have them
 automatically compiled for you. Refresh the page and you can see changes.

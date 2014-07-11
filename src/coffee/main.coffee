@@ -1,7 +1,5 @@
 'use strict'
 
-angular = require 'angular'
-
 MainController = require './controllers/MainController'
 
 app = angular.module 'mainapp', []
