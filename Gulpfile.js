@@ -16,14 +16,14 @@ dest = {
 
 // Assign Sources
 src = {
-    sass:   ['src/css/*.scss', 'src/css/**/*.scss'],
-    coffee: ['src/coffee/*.coffee', 'src/coffee/**/*.coffee'],
-    js:     'public/js/*.js'
+    sass:           ['src/css/*.scss', 'src/css/**/*.scss'],
+    main_coffee:    ['src/coffee/main.coffee'],
+    coffee:         ['src/coffee/*.coffee', 'src/coffee/**/*.coffee']
 };
 
 // Compile SASS
-gulp.task('compile-sass', function () {
-    return gulp.src(src.sass)
+gulp.task('compile-css', function () {
+    gulp.src(src.sass)
     .pipe(sass({
         onError: function(e) {
             console.log(e);
@@ -37,8 +37,10 @@ gulp.task('compile-sass', function () {
 });
 
 // Browserify
-gulp.task('browserify', function () {
-  return gulp.src(src.coffee, { read: false })
+gulp.task('compile-js', function () {
+  rimraf(dest.js);
+
+  gulp.src(src.main_coffee, { read: false })
     .pipe(browserify({
         transform: ['coffeeify'],
         extensions: ['.coffee']
@@ -47,19 +49,8 @@ gulp.task('browserify', function () {
     .pipe(gulp.dest(dest.js));
 })
 
-// Clean JS
-gulp.task('clean-js', function() {
-  return gulp.src(src.js, { read: false }).pipe(rimraf());
-});
-
 // Create watcher for all tasks
 gulp.task('watch', function () {
-    watch({glob: src.coffee}, function (files) {
-        gulp.start('clean-js');
-        gulp.start('browserify');
-    });
-
-    watch({glob: src.sass}, function (files) {
-        gulp.start('compile-sass');
-    });
+    watch({glob: src.coffee}, ['compile-js']);
+    watch({glob: src.sass}, ['compile-css']);
 });
