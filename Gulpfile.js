@@ -10,16 +10,17 @@ var gulp            = require('gulp'),
 
 // Assign Destinations
 dest = {
-    css: 'public/css',
-    js: 'public/js',
+    css:    'public/css',
+    js:     'public/js',
 };
 
 // Assign Sources
 src = {
-    sass: 'src/css/*.scss',
-    all_coffee_components: 'src/coffee/**/*.coffee',
-    main_coffee: 'src/coffee/main.coffee',
-    js: 'public/js/*.js'
+    sass:                   'src/css/*.scss',
+    included_sass:          'src/css/**/*.scss',
+    all_coffee_components:  'src/coffee/**/*.coffee',
+    main_coffee:            'src/coffee/main.coffee',
+    js:                     'public/js/*.js'
 };
 
 // Compile SASS
@@ -66,6 +67,10 @@ gulp.task('watch', function () {
     });
 
     watch({glob: src.sass}, function (files) {
+        gulp.start('compile-sass');
+    });
+
+    watch({glob: src.included_sass}, function (files) {
         gulp.start('compile-sass');
     });
 });
