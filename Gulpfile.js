@@ -1,56 +1,111 @@
-// Define Gulp Objects
+/**
+ * Define Gulp Objects
+ */
 var gulp            = require('gulp'),
-    sass            = require('gulp-sass'),
-    watch           = require('gulp-watch'),
-    rimraf          = require('gulp-rimraf'),
-    concat          = require('gulp-concat'),
-    browserify      = require('gulp-browserify'),
     autoprefixer    = require('gulp-autoprefixer'),
-    minifycss       = require('gulp-minify-css');
+    coffee          = require('gulp-coffee'),
+    concat          = require('gulp-concat'),
+    files           = require('main-bower-files'),
+    filter          = require('gulp-filter'),
+    flatten         = require('gulp-flatten'),
+    include         = require('gulp-include'),
+    minifyCss       = require('gulp-minify-css'),
+    ngAnnotate      = require('gulp-ng-annotate'),
+    ngClassify      = require('gulp-ng-classify'),
+    plumber         = require('gulp-plumber'),
+    sass            = require('gulp-sass'),
+    uglify          = require('gulp-uglify'),
+    watch           = require('gulp-watch');
 
-// Assign Destinations
-dest = {
-    css:    'public/css',
-    js:     'public/js',
+// ----------------------------------------------------------------------------
+
+/**
+ * Define Configuration object
+ */
+var config = {
+    dest: {
+        js: 'public/js',
+        css: 'public/css',
+        fonts: 'public/fonts'
+    },
+    src: {
+        sass: [
+            'src/css/*.scss',
+            'src/css/**/*.scss'
+        ],
+        coffee: {
+            base: 'src/coffee/app.coffee',
+            all: [
+                'src/coffee/*.coffee',
+                'src/coffee/**/*.coffee'
+            ]
+        }
+    },
+    additional: [
+    ]
 };
 
-// Assign Sources
-src = {
-    sass:           ['src/css/*.scss', 'src/css/**/*.scss'],
-    main_coffee:    ['src/coffee/main.coffee'],
-    coffee:         ['src/coffee/*.coffee', 'src/coffee/**/*.coffee']
-};
+// ----------------------------------------------------------------------------
 
-// Compile SASS
+/**
+ * Compile SASS into CSS
+ */
 gulp.task('compile-css', function () {
-    gulp.src(src.sass)
-    .pipe(sass({
-        onError: function(e) {
-            console.log(e);
-        },
-        style: 'expanded'
-    }))
-    .pipe(autoprefixer("> 1%"))
-    .pipe(gulp.dest(dest.css))
-    .pipe(minifycss())
-    .pipe(gulp.dest(dest.css));
+    gulp.src(config.src.sass)
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(autoprefixer("> 1%"))
+        .pipe(gulp.dest(config.dest.css))
+        .pipe(minifyCss())
+        .pipe(gulp.dest(config.dest.css));
 });
 
-// Browserify
+// ----------------------------------------------------------------------------
+
+/**
+ * Compile CoffeeScript and Angular Code into JS
+ */
 gulp.task('compile-js', function () {
-  rimraf(dest.js);
+    gulp.src(config.src.coffee.base)
+        .pipe(plumber())
+        .pipe(include())
+        .pipe(ngClassify())
+        .pipe(coffee({bare: true}))
+        .pipe(ngAnnotate())
+        .pipe(gulp.dest(config.dest.js));
+});
 
-  gulp.src(src.main_coffee, { read: false })
-    .pipe(browserify({
-        transform: ['coffeeify'],
-        extensions: ['.coffee']
-    }))
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest(dest.js));
-})
+// ----------------------------------------------------------------------------
 
-// Create watcher for all tasks
-gulp.task('watch', function () {
-    watch({glob: src.coffee}, ['compile-js']);
-    watch({glob: src.sass}, ['compile-css']);
+/**
+ * Create Watch Scripts
+ */
+gulp.task('default', function () {
+    var jsFilter        = filter('*.js');
+    var cssFilter       = filter('*.css');
+    var fontFilter      = filter(['*.eot', '*.woff', '*.svg', '*.ttf']);
+    var bower_files     = files().concat(config.additional);
+
+    watch({glob: config.src.coffee.all}, ['compile-js']);
+    watch({glob: config.src.sass}, ['compile-css']);
+
+    gulp.src(bower_files)
+        // Combine all JS Files
+        .pipe(jsFilter)
+        .pipe(uglify())
+        .pipe(concat('dependencies.min.js'))
+        .pipe(gulp.dest(config.dest.js))
+        .pipe(jsFilter.restore())
+
+        // Combine all CSS files
+        .pipe(cssFilter)
+        .pipe(minifyCss())
+        .pipe(concat('dependencies.min.css'))
+        .pipe(gulp.dest(config.dest.css))
+        .pipe(cssFilter.restore())
+
+        // Flatten fonts
+        .pipe(fontFilter)
+        .pipe(flatten())
+        .pipe(gulp.dest(config.dest.fonts));
 });
