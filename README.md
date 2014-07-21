@@ -5,6 +5,16 @@ This is a great way to work with newer frontend technologies while allowing
 you to add any backend you want alongside it. It uses [Gulp](http://gulpjs.com/)
 to watch and build CoffeeScript and SASS for you as you work with AngularJS.
 
+Who Is This Template For
+========================
+
+Ideally this is a great starting point for someone who wants to build an
+application using AngularJS written in CoffeeScript classes. The Gulpfile and
+components all are setup for seamless angular development using the
+[ng-classify](https://github.com/CaryLandholt/ng-classify) approach. As well,
+it enables you to write SASS for your CSS which makes CSS development much
+faster.
+
 Features
 ========
 
@@ -34,7 +44,7 @@ Next make sure you install nodeJS:
 
 Next install bower (It's recommended to install it globally):
 
-    sudo npm install -g bower
+    sudo npm install -g bower gulp
 
 Next install the gulp packages we'll use for this repo:
 
@@ -54,22 +64,19 @@ wherever your local server instance is located.
 Using this project
 ==================
 
-This project is meant to be a template to develop streamlined front-end
-applications with the flexibility to include any backend stack that you want.
-I have laid this particular project out to use AngularJS with CoffeeScript
-classes. Once you type the `gulp` command into the terminal, the script will
-watch for changes in the `src/css` and `src/coffee` folders. This includes
-deeply nested folders as well. To learn more about how to write CoffeeScript
-and AngularJS together for this project, read [here](https://github.com/CaryLandholt/ng-classify)
-as it will give you the streamlined approach that I'm going for here.
-Especially pay attention to the [module types](https://github.com/CaryLandholt/ng-classify#module-types)
-which will allow you to move fast with angular.
+To work with this project, make sure you follow the steps above to set things
+up properly. Once setup, all you will need to do is open a terminal and run:
 
-If you choose to install more packages with bower make sure you run the `gulp`
-command (if it's not already running) because this project will gather your
-bower files for you and minify everything into `dependencies.min.js` and
-`dependencies.min.css`.
+    gulp
 
-Plugging a backend such as [phalconPHP](http://phalconphp.com/) is easy with
-this layout. Your generated files will be output to a `public` directory and
-you can grab them from there or reorganize as you see fit.
+This will watch your `src/coffee` and `src/css` files (included nested
+directories one level deeper) and compile them as you update them. It will
+also account for added files.
+
+To customize the source and destination folders, open the `Gulpfile.js` and
+edit the `config` object. There is a place for **additional** scripts as well.
+By default gulp will find all of your bower packages and concatenate them and
+minify them into a single file `dependencies.min.js` and `dependencies.min.css`
+respectively. By passing additional scripts into the config object, you can
+include javascript, css, and font files into this minification process that
+are outside the scope of bower.
