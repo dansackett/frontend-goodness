@@ -18,7 +18,8 @@
     "gulp-sass": "^0.7.2",
     "gulp-uglify": "^0.3.1",
     "gulp-watch": "^0.6.8",
-    "main-bower-files": "^1.0.1"
+    "main-bower-files": "^1.0.1",
+    "js-yaml": "^3.1.0"
   },
   "devDependencies": {
   },

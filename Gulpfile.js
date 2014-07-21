@@ -7,6 +7,7 @@ var gulp            = require('gulp'),
     concat          = require('gulp-concat'),
     files           = require('main-bower-files'),
     filter          = require('gulp-filter'),
+    fs              = require('fs'),
     flatten         = require('gulp-flatten'),
     include         = require('gulp-include'),
     minifyCss       = require('gulp-minify-css'),
@@ -15,35 +16,15 @@ var gulp            = require('gulp'),
     plumber         = require('gulp-plumber'),
     sass            = require('gulp-sass'),
     uglify          = require('gulp-uglify'),
-    watch           = require('gulp-watch');
+    watch           = require('gulp-watch'),
+    yaml            = require('js-yaml');
 
 // ----------------------------------------------------------------------------
 
 /**
  * Define Configuration object
  */
-var config = {
-    dest: {
-        js: 'public/js',
-        css: 'public/css',
-        fonts: 'public/fonts'
-    },
-    src: {
-        sass: [
-            'src/css/*.scss',
-            'src/css/**/*.scss'
-        ],
-        coffee: {
-            base: 'src/coffee/app.coffee',
-            all: [
-                'src/coffee/*.coffee',
-                'src/coffee/**/*.coffee'
-            ]
-        }
-    },
-    additional: [
-    ]
-};
+var config = yaml.load(fs.readFileSync('gulp_config.yaml', 'utf-8'));
 
 // ----------------------------------------------------------------------------
 
@@ -75,16 +56,25 @@ gulp.task('compile-js', function () {
         .pipe(gulp.dest(config.dest.js));
 });
 
+gulp.task('test', function() {
+    console.log(config);
+});
+
 // ----------------------------------------------------------------------------
 
 /**
  * Create Watch Scripts
  */
 gulp.task('default', function () {
-    var jsFilter        = filter('*.js');
-    var cssFilter       = filter('*.css');
-    var fontFilter      = filter(['*.eot', '*.woff', '*.svg', '*.ttf']);
-    var bower_files     = files().concat(config.additional);
+    var jsFilter        = filter('*.js'),
+        cssFilter       = filter('*.css'),
+        fontFilter      = filter(['*.eot', '*.woff', '*.svg', '*.ttf']),
+        bower_files     = files();
+
+    // If you have additional files defined, add them in
+    if (config.additional) {
+        var bower_files = files().concat(config.additional);
+    }
 
     watch({glob: config.src.coffee.all}, ['compile-js']);
     watch({glob: config.src.sass}, ['compile-css']);

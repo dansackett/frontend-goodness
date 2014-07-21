@@ -1,0 +1,14 @@
+dest:
+    js:     public/js
+    css:    public/css
+    fonts:  public/fonts
+src:
+    sass:
+        - src/css/*.scss
+        - src/css/**/*.scss
+    coffee:
+        base: src/coffee/app.coffee
+        all:
+            - src/coffee/*.coffee
+            - src/coffee/**/*.coffee
+# additional:

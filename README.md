@@ -73,10 +73,10 @@ This will watch your `src/coffee` and `src/css` files (included nested
 directories one level deeper) and compile them as you update them. It will
 also account for added files.
 
-To customize the source and destination folders, open the `Gulpfile.js` and
-edit the `config` object. There is a place for **additional** scripts as well.
-By default gulp will find all of your bower packages and concatenate them and
-minify them into a single file `dependencies.min.js` and `dependencies.min.css`
+To customize the source and destination folders, open the `gulp_config.yaml` file and
+edit the items. There is a place for **additional** scripts as well that is
+currently commented out. By default gulp will find all of your bower packages and
+concatenate them and minify them into a single file `dependencies.min.js` and `dependencies.min.css`
 respectively. By passing additional scripts into the config object, you can
 include javascript, css, and font files into this minification process that
 are outside the scope of bower.
