@@ -23,11 +23,9 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.19",
+    "jquery": "~2.1.1",
     "bootstrap": "~3.2.0",
-    "jquery": "~2.1.1"
-  },
-  "devDependencies": {
-    "fontawesome": "~4.1.0"
+    "fontawesome": "~4.1.0",
+    "angular": "~1.2.19"
   }
 }
