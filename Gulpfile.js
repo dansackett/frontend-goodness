@@ -76,8 +76,8 @@ gulp.task('default', function () {
         var bower_files = files().concat(config.additional);
     }
 
-    watch({glob: config.src.coffee.all, emitOnGlob: false}, ['compile-js']);
-    watch({glob: config.src.sass, emitOnGlob: false}, ['compile-css']);
+    watch({glob: config.src.coffee.all}, ['compile-js']);
+    watch({glob: config.src.sass}, ['compile-css']);
 
     gulp.src(bower_files)
         // Combine all JS Files
