@@ -65,7 +65,7 @@ gulp.task('test', function() {
 /**
  * Create Watch Scripts
  */
-gulp.task('default', function () {
+gulp.task('default', ['compile-js', 'compile-css'], function () {
     var jsFilter        = filter('*.js'),
         cssFilter       = filter('*.css'),
         fontFilter      = filter(['*.eot', '*.woff', '*.svg', '*.ttf']),
