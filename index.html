@@ -28,37 +28,102 @@
         </ul>
       </header>
       <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a name="frontend-goodness" class="anchor" href="#frontend-goodness"><span class="octicon octicon-link"></span></a>Frontend Goodness</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>This is a great way to work with newer frontend technologies while allowing
+you to add any backend you want alongside it. It uses <a href="http://gulpjs.com/">Gulp</a>
+to watch and build CoffeeScript and SASS for you as you work with AngularJS.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<h1>
+<a name="who-is-this-template-for" class="anchor" href="#who-is-this-template-for"><span class="octicon octicon-link"></span></a>Who Is This Template For</h1>
+
+<p>Ideally this is a great starting point for someone who wants to build an
+application using AngularJS written in CoffeeScript classes. The Gulpfile and
+components all are setup for seamless angular development using the
+<a href="https://github.com/CaryLandholt/ng-classify">ng-classify</a> approach. As well,
+it enables you to write SASS for your CSS which makes CSS development much
+faster.</p>
+
+<h1>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h1>
+
+<ul>
+<li>
+<a href="http://jquery.com/">jQuery</a> - Because it's so useful.</li>
+<li>
+<a href="https://angularjs.org/">AngularJS</a> - Because it's the future of data-driven
+front-end frameworks.</li>
+<li>
+<a href="http://coffeescript.org/">CoffeeScript</a> - Because it makes writing all
+things JavaScript easier.</li>
+<li>
+<a href="http://getbootstrap.com">Twitter Bootstrap</a> - For quick scaffolding.</li>
+<li>
+<a href="http://sass-lang.com/">SASS</a> - Making writing CSS less painful.</li>
+<li>
+<a href="http://gulpjs.com/">Gulp</a> - Tool to build all files and compile for production.</li>
+<li>
+<a href="http://fontawesome.io/">FontAwesome</a> - Excellent web fonts.</li>
+</ul><h1>
+<a name="getting-setup" class="anchor" href="#getting-setup"><span class="octicon octicon-link"></span></a>Getting Setup</h1>
+
+<p>Clone this repo where you want your project to live:</p>
+
+<pre><code>git clone git@github.com:dansackett/frontend-goodness
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Next make sure you install nodeJS:</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<pre><code>sudo apt-get install -y python-software-properties
+sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install nodejs
+</code></pre>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Next install bower (It's recommended to install it globally):</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<pre><code>sudo npm install -g bower gulp
+</code></pre>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>Next install the gulp packages we'll use for this repo:</p>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<pre><code>sudo npm install
+</code></pre>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>Next install bower components:</p>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<pre><code>bower install
+</code></pre>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Finally, type:</p>
+
+<pre><code>gulp
+</code></pre>
+
+<p>If all was installed correctly, you will have a fully functional website setup
+wherever your local server instance is located.</p>
+
+<h1>
+<a name="using-this-project" class="anchor" href="#using-this-project"><span class="octicon octicon-link"></span></a>Using this project</h1>
+
+<p>To work with this project, make sure you follow the steps above to set things
+up properly. Once setup, all you will need to do is open a terminal and run:</p>
+
+<pre><code>gulp
+</code></pre>
+
+<p>This will watch your <code>src/coffee</code> and <code>src/css</code> files (included nested
+directories one level deeper) and compile them as you update them. It will
+also account for added files.</p>
+
+<p>To customize the source and destination folders, open the <code>gulp_config.yaml</code> file and
+edit the items. There is a place for <strong>additional</strong> scripts as well that is
+currently commented out. By default gulp will find all of your bower packages and
+concatenate them and minify them into a single file <code>dependencies.min.js</code> and <code>dependencies.min.css</code>
+respectively. By passing additional scripts into the config object, you can
+include javascript, css, and font files into this minification process that
+are outside the scope of bower.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/dansackett">dansackett</a></p>
