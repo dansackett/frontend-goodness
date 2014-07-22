@@ -31,7 +31,7 @@ var config = yaml.load(fs.readFileSync('gulp_config.yaml', 'utf-8'));
 /**
  * Compile SASS into CSS
  */
-gulp.task('compile-css', function () {
+gulp.task('Generate Styles', function () {
     gulp.src(config.src.sass)
         .pipe(plumber())
         .pipe(sass())
@@ -46,7 +46,7 @@ gulp.task('compile-css', function () {
 /**
  * Compile CoffeeScript and Angular Code into JS
  */
-gulp.task('compile-js', function () {
+gulp.task('Generate Scripts', function () {
     gulp.src(config.src.coffee.base)
         .pipe(plumber())
         .pipe(include())
@@ -56,16 +56,12 @@ gulp.task('compile-js', function () {
         .pipe(gulp.dest(config.dest.js));
 });
 
-gulp.task('test', function() {
-    console.log(config);
-});
-
 // ----------------------------------------------------------------------------
 
 /**
- * Create Watch Scripts
+ * Compile Bower files
  */
-gulp.task('default', ['compile-js', 'compile-css'], function () {
+gulp.task('Compress Bower Files', function () {
     var jsFilter        = filter('*.js'),
         cssFilter       = filter('*.css'),
         fontFilter      = filter(['*.eot', '*.woff', '*.svg', '*.ttf']),
@@ -75,9 +71,6 @@ gulp.task('default', ['compile-js', 'compile-css'], function () {
     if (config.additional) {
         var bower_files = files().concat(config.additional);
     }
-
-    watch({glob: config.src.coffee.all, emitOnGlob: false}, ['compile-js']);
-    watch({glob: config.src.sass, emitOnGlob: false}, ['compile-css']);
 
     gulp.src(bower_files)
         // Combine all JS Files
@@ -99,3 +92,25 @@ gulp.task('default', ['compile-js', 'compile-css'], function () {
         .pipe(flatten())
         .pipe(gulp.dest(config.dest.fonts));
 });
+
+// ----------------------------------------------------------------------------
+
+/**
+ * Create Watch Scripts
+ */
+gulp.task('Create Watch Scripts', function () {
+    watch({glob: config.src.coffee.all, emitOnGlob: false}, ['Generate Scripts']);
+    watch({glob: config.src.sass, emitOnGlob: false}, ['Generate Styles']);
+});
+
+// ----------------------------------------------------------------------------
+
+/**
+ * Default task
+ */
+gulp.task('default', [
+    'Generate Scripts',
+    'Generate Styles',
+    'Compress Bower Files',
+    'Create Watch Scripts'
+]);
