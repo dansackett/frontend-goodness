@@ -1,3 +1,3 @@
-class Main extends Controller
-    constructor: ($scope) ->
-        $scope.appName = 'Frontend Goodness'
+class MainController extends Controller
+    constructor: () ->
+        @appName = 'Frontend Goodness'
