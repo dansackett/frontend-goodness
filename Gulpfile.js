@@ -5,8 +5,6 @@ var gulp            = require('gulp'),
     autoprefixer    = require('gulp-autoprefixer'),
     coffee          = require('gulp-coffee'),
     concat          = require('gulp-concat'),
-    files           = require('main-bower-files'),
-    filter          = require('gulp-filter'),
     fs              = require('fs'),
     flatten         = require('gulp-flatten'),
     include         = require('gulp-include'),
@@ -61,34 +59,21 @@ gulp.task('Generate Scripts', function () {
 /**
  * Compile Bower files
  */
-gulp.task('Compress Bower Files', function () {
-    var jsFilter        = filter('*.js'),
-        cssFilter       = filter('*.css'),
-        fontFilter      = filter(['*.eot', '*.woff', '*.svg', '*.ttf']),
-        bower_files     = files();
-
-    // If you have additional files defined, add them in
-    if (config.additional) {
-        var bower_files = files().concat(config.additional);
-    }
-
-    gulp.src(bower_files)
-        // Combine all JS Files
-        .pipe(jsFilter)
+gulp.task('Compress Third Party Files', function () {
+    // Combine JS Files
+    gulp.src(config.third_party.js)
         .pipe(uglify())
         .pipe(concat('dependencies.min.js'))
-        .pipe(gulp.dest(config.dest.js))
-        .pipe(jsFilter.restore())
+        .pipe(gulp.dest(config.dest.js));
 
-        // Combine all CSS files
-        .pipe(cssFilter)
+    // Combine CSS files
+    gulp.src(config.third_party.css)
         .pipe(minifyCss())
         .pipe(concat('dependencies.min.css'))
-        .pipe(gulp.dest(config.dest.css))
-        .pipe(cssFilter.restore())
+        .pipe(gulp.dest(config.dest.css));
 
-        // Flatten fonts
-        .pipe(fontFilter)
+    // Flatten fonts
+    gulp.src(config.third_party.fonts)
         .pipe(flatten())
         .pipe(gulp.dest(config.dest.fonts));
 });
@@ -111,6 +96,6 @@ gulp.task('Create Watch Scripts', function () {
 gulp.task('default', [
     'Generate Scripts',
     'Generate Styles',
-    'Compress Bower Files',
+    'Compress Third Party Files',
     'Create Watch Scripts'
 ]);
