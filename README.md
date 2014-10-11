@@ -9,16 +9,14 @@ Who Is This Template For
 ========================
 
 Ideally this is a great starting point for someone who wants to build an
-application using AngularJS written in CoffeeScript classes. The Gulpfile and
-components all are setup for seamless angular development using the
-[ng-classify](https://github.com/CaryLandholt/ng-classify) approach. As well,
+application using AngularJS written in CoffeeScript classes. As well,
 it enables you to write SASS for your CSS which makes CSS development much
 faster.
 
 Features
 ========
 
-* [jQuery](http://jquery.com/) - Because it's so useful.
+* [jQuery](http://jquery.com/) - Because bootstrap requires it.
 * [AngularJS](https://angularjs.org/) - Because it's the future of data-driven
   front-end frameworks.
 * [CoffeeScript](http://coffeescript.org/) - Because it makes writing all

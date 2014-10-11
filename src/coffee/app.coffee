@@ -1,6 +1,17 @@
-#= require_tree services
-#= require_tree filters
-#= require_tree controllers
-#= require_tree directives
+(() ->
+    angular.module 'myapp', []
 
-class MainApp extends App then constructor: -> return []
+    #= require services.coffee
+    #= require filters.coffee
+    #= require controllers.coffee
+    #= require directives.coffee
+
+    # -------------------------------------------------------------------------
+
+    ##
+    # @ngInject
+    ##
+    Config = () ->
+
+    angular.module('myapp').config Config
+)()
