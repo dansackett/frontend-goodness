@@ -3,13 +3,21 @@
  *
  * Table of Contents:
  *
+ * VARIABLES................. Import project variables.
  * NORMALIZE................. Import normalize as a reset.
+ * IMPORTS................... Import any module imports.
+ * BOOTSTRAP OVERRIDES....... Import all overrides for Bootstrap.
+ * GLOBAL DECLARATIONS....... Global app definitions.
  */
 
 @import "inc/vars",
         "inc/normalize",
-        "inc/imports";
+        "inc/imports",
+        "inc/overrides";
 
+/*
+ * Global Declarions
+ */
 body {
     padding-top: 70px;
 }

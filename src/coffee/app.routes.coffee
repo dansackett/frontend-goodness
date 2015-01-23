@@ -10,5 +10,7 @@
             templateUrl: 'public/templates/layout/index.html',
         }
 
+        return
+
     angular.module('app.routes').config(routes)
 )()

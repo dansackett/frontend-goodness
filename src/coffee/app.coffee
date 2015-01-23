@@ -6,7 +6,7 @@
         'app.layout',
     ]
 
-    # Global app modules here
+    # Global app module declarations here
     angular.module 'app.routes', ['ui.router']
     angular.module 'app.config', ['ui.bootstrap']
 
