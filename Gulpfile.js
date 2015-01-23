@@ -84,8 +84,8 @@ gulp.task('Compress Third Party Files', function () {
  * Create Watch Scripts
  */
 gulp.task('Create Watch Scripts', function () {
-    watch({glob: config.src.coffee.all, emitOnGlob: false}, ['Generate Scripts']);
-    watch({glob: config.src.sass, emitOnGlob: false}, ['Generate Styles']);
+    watch(config.src.coffee.all, function() {gulp.start('Generate Scripts')});
+    watch(config.src.sass, function() {gulp.start('Generate Styles')});
 });
 
 // ----------------------------------------------------------------------------
