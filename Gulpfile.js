@@ -2,6 +2,7 @@
  * Define Gulp Objects
  */
 var gulp            = require('gulp'),
+    bump            = require('gulp-bump'),
     autoprefixer    = require('gulp-autoprefixer'),
     coffee          = require('gulp-coffee'),
     concat          = require('gulp-concat'),
@@ -89,6 +90,15 @@ gulp.task('Create Watch Scripts', function () {
 });
 
 // ----------------------------------------------------------------------------
+
+/**
+* Update bower and  npm at once
+*/
+gulp.task('bump', function(){
+  gulp.src(['./bower.json', './package.json'])
+  .pipe(bump({type:'major'}))
+  .pipe(gulp.dest('./'));
+});
 
 /**
  * Default task
