@@ -3,13 +3,13 @@
     # @ngInject
     ##
     routes = ($stateProvider, $urlRouterProvider) ->
-        $urlRouterProvider.otherwise '/frontend-goodness'
+        $urlRouterProvider.otherwise '/'
 
         $stateProvider
         .state 'index', {
-            url: "/frontend-goodness",
+            url: "/",
             controller: 'IndexController as vm',
-            templateUrl: 'frontend-goodness/public/templates/layout/index.html',
+            templateUrl: 'public/templates/layout/index.html',
         }
 
     angular.module('app.routes').config(routes)
