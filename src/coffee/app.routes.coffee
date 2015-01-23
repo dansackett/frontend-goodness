@@ -1,8 +1,6 @@
 (() ->
-    ##
-    # @ngInject
-    ##
     routes = ($stateProvider, $urlRouterProvider) ->
+        'ngInject'
         $urlRouterProvider.otherwise '/'
 
         $stateProvider

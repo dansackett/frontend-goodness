@@ -1,8 +1,6 @@
 (() ->
-    ##
-    # @ngInject
-    ##
     IndexController = () ->
+        'ngInject'
         vm = this
         vm.name = 'Index Controller'
 
