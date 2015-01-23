@@ -2,20 +2,17 @@
  * Define Gulp Objects
  */
 var gulp            = require('gulp'),
-    bump            = require('gulp-bump'),
     autoprefixer    = require('gulp-autoprefixer'),
+    bump            = require('gulp-bump'),
     coffee          = require('gulp-coffee'),
     concat          = require('gulp-concat'),
     fs              = require('fs'),
     flatten         = require('gulp-flatten'),
-    include         = require('gulp-include'),
     minifyCss       = require('gulp-minify-css'),
     ngAnnotate      = require('gulp-ng-annotate'),
-    ngClassify      = require('gulp-ng-classify'),
     plumber         = require('gulp-plumber'),
     sass            = require('gulp-sass'),
     uglify          = require('gulp-uglify'),
-    watch           = require('gulp-watch'),
     yaml            = require('js-yaml');
 
 // ----------------------------------------------------------------------------
@@ -46,12 +43,11 @@ gulp.task('Generate Styles', function () {
  * Compile CoffeeScript and Angular Code into JS
  */
 gulp.task('Generate Scripts', function () {
-    gulp.src(config.src.coffee.base)
+    gulp.src(config.src.coffee)
         .pipe(plumber())
-        .pipe(include())
-        .pipe(ngClassify())
         .pipe(coffee({bare: true}))
         .pipe(ngAnnotate())
+        .pipe(concat('app.min.js'))
         .pipe(gulp.dest(config.dest.js));
 });
 
@@ -85,20 +81,22 @@ gulp.task('Compress Third Party Files', function () {
  * Create Watch Scripts
  */
 gulp.task('Create Watch Scripts', function () {
-    watch(config.src.coffee.all, function() {gulp.start('Generate Scripts')});
-    watch(config.src.sass, function() {gulp.start('Generate Styles')});
+    gulp.watch(config.src.coffee, ['Generate Scripts']);
+    gulp.watch(config.src.sass, ['Generate Styles']);
 });
 
 // ----------------------------------------------------------------------------
 
 /**
-* Update bower and  npm at once
+* Update bower and npm at once
 */
 gulp.task('bump', function(){
-  gulp.src(['./bower.json', './package.json'])
-  .pipe(bump({type:'major'}))
-  .pipe(gulp.dest('./'));
+    gulp.src(['./bower.json', './package.json'])
+        .pipe(bump({type:'major'}))
+        .pipe(gulp.dest('./'));
 });
+
+// ----------------------------------------------------------------------------
 
 /**
  * Default task

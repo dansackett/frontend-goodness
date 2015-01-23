@@ -7,15 +7,14 @@ src:
         - src/css/*.scss
         - src/css/**/*.scss
     coffee:
-        base: src/coffee/app.coffee
-        all:
-            - src/coffee/*.coffee
-            - src/coffee/**/*.coffee
+        - src/coffee/*.coffee
+        - src/coffee/**/*.coffee
+        - src/coffee/**/**/*.coffee
 third_party:
     js:
-        - public/third-party/jquery/dist/jquery.min.js
-        - public/third-party/bootstrap/dist/js/bootstrap.min.js
         - public/third-party/angular/angular.min.js
+        - public/third-party/angular-ui-router/release/angular-ui-router.min.js
+        - public/third-party/angular-bootstrap/ui-bootstrap.min.js
     css:
         - public/third-party/bootstrap/dist/css/bootstrap.min.css
         - public/third-party/fontawesome/css/font-awesome.min.css

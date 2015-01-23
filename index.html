@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myapp">
+<html lang="en" ng-app="app">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
+        <meta name="description" content="Frontend development kit">
         <meta name="author" content="Dan Sackett">
         <link type="text/plain" rel="author" href="public/humans.txt" />
-
+        <base href="/">
         <title>Frontend Goodness</title>
 
         <!-- CSS -->
-        <link href="public/css/dependencies.min.css" rel="stylesheet" />
-        <link href="public/css/styles.css" rel="stylesheet" />
+        <link href="frontend-goodness/public/css/dependencies.min.css" rel="stylesheet" />
+        <link href="frontend-goodness/public/css/styles.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -29,64 +29,16 @@
                 <a class="navbar-brand" href="#">Frontend Goodness</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
+                <ul class="nav navbar-nav"></ul>
             </div>
         </div>
     </div>
 
-    <div class="container" ng-controller="MainCtrl as main">
-        <div class="row">
-            <h3 ng-bind="main.hello"></h3>
-            <p>This setup is my attempt at creating a more uniform template to
-            start from for new projects for me. It allows getting setup fast
-            for a new web project and gives me some tools that make
-            development a breeze. It includes:</p>
-
-            <test></test>
-
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <h4>jQuery</h4>
-                    <p>jQuery is included for DOM manipulation and because
-                    it makes most tasks in JavaScript incredibly easier.</p>
-                </li>
-                <li class="list-group-item">
-                    <h4>AngularJS</h4>
-                    <p>AngularJS is included to create a rich data-driven website
-                    based on dynamic content and user events.</p>
-                </li>
-                <li class="list-group-item">
-                    <h4>CoffeeScript</h4>
-                    <p>CoffeeScript is included to make writing jQuery and
-                    AngularJS more enjoyable and also to make writing them
-                    easier and faster.</p>
-                </li>
-                <li class="list-group-item">
-                    <h4>SASS</h4>
-                    <p>SASS is included to make writing CSS less painful and
-                    much faster.</p>
-                </li>
-                <li class="list-group-item">
-                    <h4>Twitter Bootstrap</h4>
-                    <p>Twitter bootstrap is included for fast scaffolds and
-                    moving quickly with best practice HTML.</p>
-                </li>
-                <li class="list-group-item">
-                    <h4>Gulp</h4>
-                    <p>Build tool to make front-end development much easier.</p>
-                </li>
-                <li class="list-group-item">
-                    <h4>Bower</h4>
-                    <p>Front-end package management.</p>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <div class="container" ui-view></div>
 
     <!-- JS -->
-    <script src="public/js/dependencies.min.js"></script>
-    <script src="public/js/app.js"></script>
+    <script src="frontend-goodness/public/js/dependencies.min.js"></script>
+    <script src="frontend-goodness/public/js/app.min.js"></script>
 
     </body>
 </html>

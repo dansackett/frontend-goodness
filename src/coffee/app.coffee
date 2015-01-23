@@ -1,17 +1,23 @@
 (() ->
-    angular.module 'myapp', []
+    # Add all large modules here
+    angular.module 'app', [
+        'app.config',
+        'app.routes',
+        'app.layout',
+    ]
 
-    #= require services.coffee
-    #= require filters.coffee
-    #= require controllers.coffee
-    #= require directives.coffee
-
-    # -------------------------------------------------------------------------
+    # Global app modules here
+    angular.module 'app.routes', ['ui.router']
+    angular.module 'app.config', ['ui.bootstrap']
 
     ##
+    # This is useful for configuring runtime functions and definitions such as
+    # updating HTTP headers for Django, adding values to rootScope, etc.
+    #
     # @ngInject
     ##
-    Config = () ->
+    run = ($http) ->
+        return
 
-    angular.module('myapp').config Config
+    angular.module('app').run(run)
 )()
