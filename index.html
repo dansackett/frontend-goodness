@@ -1,59 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Frontend-goodness by dansackett</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <title>Frontend-goodness by dansackett</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
+    <header>
+      <div class="inner">
         <h1>Frontend-goodness</h1>
-        <p>A streamlined frontend development system using Gulp, SASS, CoffeeScript, AngularJS, and Twitter Bootstrap</p>
+        <h2>A streamlined frontend development system using Gulp, SASS, CoffeeScript, AngularJS, and Twitter Bootstrap</h2>
+        <a href="https://github.com/dansackett/frontend-goodness" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
 
-        <p class="view"><a href="https://github.com/dansackett/frontend-goodness">View the Project on GitHub <small>dansackett/frontend-goodness</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/dansackett/frontend-goodness/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/dansackett/frontend-goodness/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/dansackett/frontend-goodness">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a name="frontend-goodness" class="anchor" href="#frontend-goodness"><span class="octicon octicon-link"></span></a>Frontend Goodness</h1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="frontend-goodness" class="anchor" href="#frontend-goodness" aria-hidden="true"><span class="octicon octicon-link"></span></a>Frontend Goodness</h1>
 
 <p>This is a great way to work with newer frontend technologies while allowing
 you to add any backend you want alongside it. It uses <a href="http://gulpjs.com/">Gulp</a>
 to watch and build CoffeeScript and SASS for you as you work with AngularJS.</p>
 
 <h1>
-<a name="who-is-this-template-for" class="anchor" href="#who-is-this-template-for"><span class="octicon octicon-link"></span></a>Who Is This Template For</h1>
+<a id="who-is-this-template-for" class="anchor" href="#who-is-this-template-for" aria-hidden="true"><span class="octicon octicon-link"></span></a>Who Is This Template For</h1>
 
 <p>Ideally this is a great starting point for someone who wants to build an
-application using AngularJS written in CoffeeScript classes. The Gulpfile and
-components all are setup for seamless angular development using the
-<a href="https://github.com/CaryLandholt/ng-classify">ng-classify</a> approach. As well,
+application using AngularJS written in CoffeeScript. As well,
 it enables you to write SASS for your CSS which makes CSS development much
 faster.</p>
 
 <h1>
-<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h1>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h1>
 
 <ul>
 <li>
-<a href="http://jquery.com/">jQuery</a> - Because it's so useful.</li>
-<li>
 <a href="https://angularjs.org/">AngularJS</a> - Because it's the future of data-driven
 front-end frameworks.</li>
+<li>
+<a href="http://angular-ui.github.io/bootstrap/">UI-Bootstrap</a> - Because it
+replaces jQuery for Bootstrap.</li>
+<li>
+<a href="https://github.com/angular-ui/ui-router">UI-Router</a> - Because it is the
+community standard for routing AngularJS apps.</li>
 <li>
 <a href="http://coffeescript.org/">CoffeeScript</a> - Because it makes writing all
 things JavaScript easier.</li>
@@ -65,8 +67,10 @@ things JavaScript easier.</li>
 <a href="http://gulpjs.com/">Gulp</a> - Tool to build all files and compile for production.</li>
 <li>
 <a href="http://fontawesome.io/">FontAwesome</a> - Excellent web fonts.</li>
-</ul><h1>
-<a name="getting-setup" class="anchor" href="#getting-setup"><span class="octicon octicon-link"></span></a>Getting Setup</h1>
+</ul>
+
+<h1>
+<a id="getting-setup" class="anchor" href="#getting-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Setup</h1>
 
 <p>Clone this repo where you want your project to live:</p>
 
@@ -86,7 +90,7 @@ sudo apt-get install nodejs
 <pre><code>sudo npm install -g bower gulp
 </code></pre>
 
-<p>Next install the gulp packages we'll use for this repo:</p>
+<p>Next install the NPM packages we'll use for this repo:</p>
 
 <pre><code>sudo npm install
 </code></pre>
@@ -105,7 +109,7 @@ sudo apt-get install nodejs
 wherever your local server instance is located.</p>
 
 <h1>
-<a name="using-this-project" class="anchor" href="#using-this-project"><span class="octicon octicon-link"></span></a>Using this project</h1>
+<a id="using-this-project" class="anchor" href="#using-this-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using this project</h1>
 
 <p>To work with this project, make sure you follow the steps above to set things
 up properly. Once setup, all you will need to do is open a terminal and run:</p>
@@ -113,24 +117,101 @@ up properly. Once setup, all you will need to do is open a terminal and run:</p>
 <pre><code>gulp
 </code></pre>
 
-<p>This will watch your <code>src/coffee</code> and <code>src/css</code> files (included nested
-directories one level deeper) and compile them as you update them. It will
-also account for added files.</p>
+<p>The default task for Gulp is a watch command which monitors changes to all
+files in the <code>src/coffee</code> and <code>src/css</code> directories. This is the primary way
+of working with the project.</p>
 
-<p>To customize the source and destination folders, open the <code>gulp_config.yaml</code> file and
-edit the items. There is a place for <strong>additional</strong> scripts as well that is
-currently commented out. By default gulp will find all of your bower packages and
-concatenate them and minify them into a single file <code>dependencies.min.js</code> and <code>dependencies.min.css</code>
-respectively. By passing additional scripts into the config object, you can
-include javascript, css, and font files into this minification process that
-are outside the scope of bower.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/dansackett">dansackett</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+<h1>
+<a id="angularjs-modules" class="anchor" href="#angularjs-modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>AngularJS Modules</h1>
+
+<p>All AngularJS is modular in the sense that it uses module files to handle
+linking and compiling. You can see this in the <code>src/coffee/layout</code> folder. In
+order to add new modules, use this case as your base. For instance, a module
+file like so could be:</p>
+
+<p><strong>src/coffee/example/example.module.coffee</strong>:</p>
+
+<pre><code>(() -&gt;
+    angular.module 'app.example', [
+      'app.example.controllers',
+      'app.example.services',
+    ]
+
+    angular.module 'app.example.controllers', []
+    angular.module 'app.example.services', []
+)()
+</code></pre>
+
+<p>This module file will then expect you create the following directories:</p>
+
+<ul>
+<li><code>src/coffee/example/controllers/</code></li>
+<li><code>src/coffee/example/services/</code></li>
+</ul>
+
+<p>Within these directories, we can build our modules like so:</p>
+
+<p><strong>src/coffee/example/controllers/example.controller.coffee</strong>:</p>
+
+<pre><code>(() -&gt;
+    ExampleController = () -&gt;
+        'ngInject'
+        vm = this
+
+        activate = () -&gt;
+            return
+
+        activate()
+        return
+
+    angular
+    .module 'app.example.controllers'
+    .controller 'ExampleController', ExampleController
+)()
+</code></pre>
+
+<p>As you can see, this pattern is then reproduced to build perfect module
+components which when concatenated together for the distribution version will
+work together.</p>
+
+<p><strong>Always remember to edit the <code>src/coffee/app.coffee</code> file and add your new
+modules if the changes don't seem to take effect.</strong></p>
+
+<h1>
+<a id="router-templates" class="anchor" href="#router-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Router Templates</h1>
+
+<p>When adding new routes to your app, you should add templates to the
+<code>public/templates</code> directory. These will be directly served and is a good
+place to organize all partials and the like.</p>
+
+<h1>
+<a id="configuring-gulp-endpoints" class="anchor" href="#configuring-gulp-endpoints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuring Gulp Endpoints</h1>
+
+<p>To customize the source and destination folders, open the <code>gulp_config.yaml</code>
+file and edit the items. There is a place for <strong>third-party</strong> scripts as well
+that has been prepopulated with packages included in this project. Gulp will
+find all of your packages listed here and concatenate them and minify them
+into a single file <code>dependencies.min.js</code> and <code>dependencies.min.css</code>
+respectively.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/dansackett/frontend-goodness/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/dansackett/frontend-goodness/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/dansackett/frontend-goodness"></a> is maintained by <a href="https://github.com/dansackett">dansackett</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+  
   </body>
 </html>
