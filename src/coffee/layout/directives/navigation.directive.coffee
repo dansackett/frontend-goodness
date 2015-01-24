@@ -11,5 +11,5 @@
 
     angular
     .module 'app.layout.directives'
-    .controller 'navigation', navigation
+    .directive 'navigation', navigation
 )()
