@@ -7,4 +7,4 @@
 
 # TECHNOLOGY COLOPHON
 
-    Bootstrap 3, AngularJS, SASS, CoffeeScript, jQuery, Gulp
+    Bootstrap 3, AngularJS, SASS, CoffeeScript, UI-Router, UI-Bootstrap, Gulp
