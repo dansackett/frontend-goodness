@@ -18,7 +18,7 @@ Features
 
 * [AngularJS](https://angularjs.org/) - Because it's the future of data-driven
   front-end frameworks.
-* [AngularJS Bootstrap](http://angular-ui.github.io/bootstrap/) - Because it
+* [UI-Bootstrap](http://angular-ui.github.io/bootstrap/) - Because it
   replaces jQuery for Bootstrap.
 * [UI-Router](https://github.com/angular-ui/ui-router) - Because it is the
   community standard for routing AngularJS apps.
@@ -104,10 +104,8 @@ Within these directories, we can build our modules like so:
 **src/coffee/example/controllers/example.controller.coffee**:
 
     (() ->
-        ##
-        # @ngInject
-        ##
         ExampleController = () ->
+            'ngInject'
             vm = this
 
             activate = () ->
@@ -131,7 +129,7 @@ modules if the changes don't seem to take effect.**
 Router Templates
 ================
 
-When adding new routes to you app, you should add them to the
+When adding new routes to your app, you should add templates to the
 `public/templates` directory. These will be directly served and is a good
 place to organize all partials and the like.
 
